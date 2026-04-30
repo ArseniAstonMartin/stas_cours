@@ -16,7 +16,7 @@ This is a full-stack exam preparation system ("Система подготовк
 ### Prerequisites
 
 - **Java 21** (OpenJDK) — pre-installed
-- **Node 20** via nvm at `/home/ubuntu/.nvm` — activate with `export NVM_DIR="/home/ubuntu/.nvm" && . "$NVM_DIR/nvm.sh" && nvm use 20`
+- **Node 20** via nvm — activate with `export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && nvm use 20`
 - **Gradle 8.7** — available via `./gradlew` wrapper in `backend/`
 - **pnpm** — installed globally via npm
 
@@ -45,3 +45,6 @@ Flyway migrations run automatically on backend startup.
 - The Vite proxy (`/api` → `localhost:8080`) handles frontend-to-backend communication in development.
 - The OAuth2 client dependency is commented out in `build.gradle`. Uncomment and configure `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` env vars when enabling GitHub OAuth.
 - Redis is optional; a `ConcurrentMapCacheManager` is used as fallback when Redis is not available (no `redis` Spring profile).
+- The test attempt response does NOT include questions inline. Use `GET /api/v1/questions?subjectId=X` to fetch questions for answering.
+- PostgreSQL cluster is managed via `pg_ctlcluster 16 main start` (not `systemctl`). The DB/user may already exist from a previous run; the create commands will show harmless errors in that case.
+- nvm is installed at `$HOME/.nvm` (root user in Cloud VM). The `.bashrc` auto-sources it on shell init.
