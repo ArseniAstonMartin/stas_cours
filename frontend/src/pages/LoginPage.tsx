@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 import { authApi } from '../api/auth'
 import { useAuthStore } from '../store/authStore'
 
@@ -21,8 +22,12 @@ export default function LoginPage() {
       const res = await authApi.login(data)
       setAuth(res.user, res.accessToken, res.refreshToken)
       navigate('/dashboard')
-    } catch {
-      setError('Неверный email или пароль')
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response?.data?.message) {
+        setError(err.response.data.message)
+      } else {
+        setError('Ошибка входа. Попробуйте позже.')
+      }
     }
   }
 
