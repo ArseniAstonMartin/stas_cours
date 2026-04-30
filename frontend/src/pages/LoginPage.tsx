@@ -23,10 +23,18 @@ export default function LoginPage() {
       setAuth(res.user, res.accessToken, res.refreshToken)
       navigate('/dashboard')
     } catch (err) {
-      if (axios.isAxiosError(err) && err.response?.data?.message) {
-        setError(err.response.data.message)
+      if (axios.isAxiosError(err) && err.response?.data) {
+        const data = err.response.data
+        if (data.errors && typeof data.errors === 'object') {
+          const fieldErrors = Object.values(data.errors).join('. ')
+          setError(fieldErrors)
+        } else if (data.message) {
+          setError(data.message)
+        } else {
+          setError('Ошибка входа. Попробуйте позже.')
+        }
       } else {
-        setError('Ошибка входа. Попробуйте позже.')
+        setError('Ошибка сети. Проверьте подключение и попробуйте снова.')
       }
     }
   }
