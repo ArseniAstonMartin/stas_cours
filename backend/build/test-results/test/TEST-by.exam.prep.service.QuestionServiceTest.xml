@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.exam.prep.service.QuestionServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-30T10:07:46" hostname="cursor" time="0.132">
+  <properties/>
+  <testcase name="Should get question by id" classname="by.exam.prep.service.QuestionServiceTest" time="0.124"/>
+  <testcase name="Should create question successfully" classname="by.exam.prep.service.QuestionServiceTest" time="0.003"/>
+  <testcase name="Should throw ResourceNotFoundException when question not found" classname="by.exam.prep.service.QuestionServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

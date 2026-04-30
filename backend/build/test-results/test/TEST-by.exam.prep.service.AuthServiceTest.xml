@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.exam.prep.service.AuthServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-04-30T10:07:46" hostname="cursor" time="0.342">
+  <properties/>
+  <testcase name="Should throw DuplicateResourceException when email already exists" classname="by.exam.prep.service.AuthServiceTest" time="0.316"/>
+  <testcase name="Should throw BadCredentialsException for invalid password" classname="by.exam.prep.service.AuthServiceTest" time="0.003"/>
+  <testcase name="Should login successfully with valid credentials" classname="by.exam.prep.service.AuthServiceTest" time="0.008"/>
+  <testcase name="Should throw BadCredentialsException for non-existent user" classname="by.exam.prep.service.AuthServiceTest" time="0.002"/>
+  <testcase name="Should register new user successfully" classname="by.exam.prep.service.AuthServiceTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
